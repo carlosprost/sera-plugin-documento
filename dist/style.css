@@ -1,0 +1,240 @@
+/* Estilos premium para Creador de Documentos 📄 */
+
+/* Overlay del Modal */
+.doc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: docFadeIn 0.25s ease-out;
+}
+
+/* Caja del Modal principal */
+.doc-modal {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.4), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  width: 720px;
+  max-width: 90%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  color: #f8fafc;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Cabecera del Modal */
+.doc-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.3);
+}
+
+.doc-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #f8fafc;
+}
+
+.doc-modal-header .modal-icon {
+  font-size: 20px;
+}
+
+/* Cuerpo del Modal */
+.doc-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* Selector y Chips de Variables */
+.doc-variables-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doc-variables-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.doc-variables-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.doc-chip {
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #60a5fa;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.doc-chip:hover {
+  background: rgba(37, 99, 235, 0.3);
+  color: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.doc-chip:active {
+  transform: translateY(0);
+}
+
+/* Editor de Plantilla */
+.doc-editor-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doc-textarea {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #f8fafc;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 13px;
+  padding: 12px;
+  resize: vertical;
+  min-height: 200px;
+  outline: none;
+  transition: border-color 0.2s;
+  line-height: 1.5;
+}
+
+.doc-textarea:focus {
+  border-color: rgba(37, 99, 235, 0.6);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Fila de Configuración (Archivo y Formato) */
+.doc-config-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.doc-config-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.doc-input-text {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 13px;
+  padding: 8px 12px;
+  outline: none;
+}
+
+.doc-input-text:focus {
+  border-color: rgba(37, 99, 235, 0.6);
+}
+
+.doc-select {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 13px;
+  padding: 8px 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Pie del Modal */
+.doc-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.2);
+}
+
+.doc-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: none;
+  outline: none;
+}
+
+.doc-btn-close {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.doc-btn-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+}
+
+.doc-btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.doc-btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.doc-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Animaciones */
+@keyframes docFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
