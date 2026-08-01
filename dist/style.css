@@ -24,7 +24,7 @@
               0 10px 10px -5px rgba(0, 0, 0, 0.4), 
               inset 0 1px 0 rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  width: 720px;
+  width: 850px; /* Ancho aumentado */
   max-width: 90%;
   max-height: 85vh;
   display: flex;
@@ -130,7 +130,7 @@
   font-size: 13px;
   padding: 12px;
   resize: vertical;
-  min-height: 200px;
+  min-height: 350px; /* Altura aumentada */
   outline: none;
   transition: border-color 0.2s;
   line-height: 1.5;

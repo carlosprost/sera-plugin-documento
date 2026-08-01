@@ -34,6 +34,25 @@
       return `<span class="doc-chip" data-field="${fieldName}">+ {{${fieldName}}}</span>`;
     }).join('');
 
+    // Generar bloque default FOR_EACH dinámico
+    const primaryKey = campos[0] ? (campos[0].Field || campos[0].nombre) : 'id';
+    const defaultTemplateRows = campos.map((c) => {
+      const fieldName = c.Field || c.nombre || '';
+      return `* **${fieldName}:** {{${fieldName}}}`;
+    }).join('\\n');
+
+    const defaultTemplate = `# Reporte Consolidado: ${tableName.toUpperCase()}
+Fecha de generación: ${new Date().toLocaleDateString()}
+Cantidad de registros: ${registros.length}
+
+---
+{{#FOR_EACH}}
+### Registro: {{${primaryKey}}}
+${defaultTemplateRows}
+
+---
+{{/FOR_EACH}}`;
+
     overlay.innerHTML = `
       <div class="doc-modal">
         <div class="doc-modal-header">
@@ -53,20 +72,8 @@
             <textarea 
               id="doc-text-template" 
               class="doc-textarea" 
-              placeholder="# Reporte de Expediente&#10;Código: {{id}}&#10;Detalle: {{detalle}}&#10;Estado: {{estado}}"
-            ># Reporte Consolidado: ${tableName.toUpperCase()}
-Fecha de generación: ${new Date().toLocaleDateString()}
-Cantidad de registros: ${registros.length}
-
----
-{{#FOR_EACH}}
-### Registro N° {{id}}
-* **Detalle:** {{detalle}}
-* **Fecha/Plazo:** {{fecha}} {{dias}}
-* **Estado/CBU/Patente:** {{estado}} {{cbu}} {{patente}}
-
----
-{{/FOR_EACH}}</textarea>
+              placeholder="Escribe tu plantilla aquí..."
+            >${defaultTemplate}</textarea>
           </div>
 
           <div class="doc-config-row">
@@ -222,7 +229,11 @@ Cantidad de registros: ${registros.length}
       try {
         api.env.showNotification('Cargando asistente de combinación...', 'info');
         const campos = await api.data.getCampos(rawName);
-        const registros = await api.data.getContenido(rawName);
+        let registros = await api.data.getSelectedRegistros(rawName);
+        
+        if (!registros || registros.length === 0) {
+          registros = await api.data.getContenido(rawName);
+        }
 
         abrirCreadorDocumentos(activeTab.textContent.trim(), campos, registros);
       } catch (err) {
