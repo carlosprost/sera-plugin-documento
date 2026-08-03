@@ -243,8 +243,6 @@ ${defaultTemplateRows}
     }
   });
 
-  // Notificación de carga
-  api.env.showNotification('🧩 Creador de Documentos cargado correctamente', 'info');
   console.log('[Creador Documentos] Plugin inicializado correctamente ✅');
 
 })();
